@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_05_204044) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_06_153909) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -37,6 +37,30 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_204044) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "brand_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.string "state"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.integer "brand_id"
@@ -46,5 +70,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_204044) do
     t.integer "stock_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "product_description"
+    t.boolean "available"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
+
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
 end
