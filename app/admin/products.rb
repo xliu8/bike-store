@@ -1,7 +1,6 @@
 ActiveAdmin.register Product do
-  permit_params :product_name, :brand_id, :category_id, :price, :model_year, :stock_quantity, :product_description, :available
+  permit_params :product_name, :brand_id, :category_id, :price, :model_year, :stock_quantity, :product_description, :available, :image
 
-  # 表单配置
   form do |f|
     f.inputs do
       f.input :product_name
@@ -12,11 +11,11 @@ ActiveAdmin.register Product do
       f.input :stock_quantity
       f.input :product_description
       f.input :available
+      f.input :image, as: :file
     end
     f.actions
   end
 
-  # 列表配置
   index do
     selectable_column
     id_column
@@ -28,10 +27,36 @@ ActiveAdmin.register Product do
     column :stock_quantity
     column :product_description
     column :available
+    column "Image" do |product|
+      if product.image.attached?
+        image_tag url_for(product.image), size: "50x50"
+      else
+        "No Image"
+      end
+    end
     actions
   end
 
-  # 过滤器配置（根据需要添加必要字段）
+  show do
+    attributes_table do
+      row :product_name
+      row :brand
+      row :category
+      row :price
+      row :model_year
+      row :stock_quantity
+      row :available
+      row :product_description
+      row :image do |product|
+        if product.image.attached?
+          image_tag url_for(product.image)
+        else
+          "No Image"
+        end
+      end
+    end
+  end  
+
   filter :product_name
   filter :brand
   filter :category
