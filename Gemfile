@@ -35,3 +35,12 @@ gem 'pundit'
 gem 'ransack', '~> 4.0'             
 gem "dartsass-rails", "~> 0.5.1"
 gem 'kaminari'
+gem 'trix'
+gem 'actiontext'
+
+gem "image_processing", "~> 1.13"
+
+gem 'mini_magick', '~> 4.13'
+gem 'ruby-vips', '~> 2.2'
+gem 'activeadmin_quill_editor'
+gem 'sassc'

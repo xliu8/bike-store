@@ -349,4 +349,9 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+
+  config.register_stylesheet 'https://unpkg.com/trix@2.0.8/dist/trix.css'
+
+
+ config.register_javascript "https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"
 end

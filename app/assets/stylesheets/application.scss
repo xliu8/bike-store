@@ -1,1 +1,8 @@
-// Sassy
+
+@import "./actiontext.css";
+//simple_form input for rich_text_area hight
+
+trix-editor.form-control {
+    height: auto;
+  }
+
