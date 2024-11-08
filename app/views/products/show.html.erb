@@ -1,0 +1,8 @@
+<h1><%= @product.product_name %></h1>
+<p><%= @product.product_description %></p>
+<p>Price: <%= number_to_currency(@product.price) %></p>
+<p>Stock: <%= @product.stock_quantity %></p>
+<% if @product.image.attached? %>
+  <%= image_tag @product.image %>
+<% end %>
+<%= link_to 'Back to Products', products_path %>

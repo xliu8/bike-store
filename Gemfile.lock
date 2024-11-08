@@ -404,7 +404,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  activeadmin
+  activeadmin (>= 3.1.0)
   bootsnap
   brakeman
   cancancan
@@ -416,9 +416,11 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   importmap-rails
   jbuilder
+  kaminari
   puma (>= 5.0)
   pundit
   rails (~> 7.2.1, >= 7.2.1.1)
+  ransack (~> 4.0)
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
