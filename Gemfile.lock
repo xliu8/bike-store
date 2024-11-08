@@ -55,6 +55,8 @@ GEM
       kaminari (>= 1.2.1)
       railties (>= 6.1)
       ransack (>= 4.0)
+    activeadmin_quill_editor (1.2.0)
+      activeadmin (>= 2.9, < 4)
     activejob (7.2.2)
       activesupport (= 7.2.2)
       globalid (>= 0.3.6)
@@ -139,6 +141,16 @@ GEM
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     formtastic (5.0.0)
       actionpack (>= 6.0.0)
     formtastic_i18n (0.7.0)
@@ -167,6 +179,9 @@ GEM
       activesupport (>= 5.2)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
+    image_processing (1.13.0)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.0.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -212,6 +227,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.3)
@@ -332,11 +348,16 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.2)
+      ffi (~> 1.12)
+      logger
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.80.6)
       google-protobuf (~> 4.28)
       rake (>= 13)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.3.1)
     selenium-webdriver (4.26.0)
       base64 (~> 0.2)
@@ -366,6 +387,8 @@ GEM
     stringio (3.1.1)
     thor (1.3.2)
     timeout (0.4.2)
+    trix (0.10.1)
+      rails
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -404,7 +427,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  actiontext
   activeadmin (>= 3.1.0)
+  activeadmin_quill_editor
   bootsnap
   brakeman
   cancancan
@@ -414,18 +439,23 @@ DEPENDENCIES
   devise
   draper
   error_highlight (>= 0.4.0)
+  image_processing (~> 1.13)
   importmap-rails
   jbuilder
   kaminari
+  mini_magick (~> 4.13)
   puma (>= 5.0)
   pundit
   rails (~> 7.2.1, >= 7.2.1.1)
   ransack (~> 4.0)
   rubocop-rails-omakase
+  ruby-vips (~> 2.2)
+  sassc
   selenium-webdriver
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails
+  trix
   turbo-rails
   tzinfo-data
   web-console
