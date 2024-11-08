@@ -9,7 +9,7 @@ class Product < ApplicationRecord
     has_one_attached :image
 
     def self.ransackable_attributes(auth_object = nil)
-      %w[product_name price stock_quantity model_year product_description available created_at updated_at image]
+      %w[product_name price stock_quantity model_year product_description available created_at updated_at]
     end
   
     def self.ransackable_associations(auth_object = nil)

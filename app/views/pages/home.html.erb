@@ -1,0 +1,23 @@
+<h1>Welcome to Our Store</h1>
+<%= form_with url: products_path, method: :get, local: true do |f| %>
+  <%= f.label :search, "Search Products" %>
+  <%= f.text_field :keyword %>
+  <%= f.label :category, "Select Category" %>
+  <%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: "All Categories" %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<div class="product-list">
+  <% @products.each do |product| %>
+    <div class="product-item">
+      <h3><%= link_to product.product_name, product_path(product) %></h3>
+      <p><%= product.product_description %></p>
+      <p>Price: <%= number_to_currency(product.price) %></p>
+      <% if product.image.attached? %>
+        <%= image_tag product.image, size: "100x100" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @products %> <!-- Kaminari pagination links -->
